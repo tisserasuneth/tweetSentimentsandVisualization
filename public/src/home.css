@@ -19,6 +19,9 @@ body{
 .top{
     width: 100vw;
 }
+.logout{
+    margin-right: 1rem !important;
+}
 .line{
     height: 3px;
     width: 100vw;
@@ -32,29 +35,41 @@ body{
 }
 
 .tweets{
-    width: 40vw;
-    height: 35vw;
+    min-width: 35vw;
+    height: 25vh;
     padding: 1rem;
     color: black;
+    overflow-y: scroll !important;
+    font-size: small;
+    display:flex;
+    justify-content:center;
+}
+.flip{
+    height: 2rem;
+}
+
+.table{
+    z-index: 1;
 }
 
 .buttons{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding-bottom: 1rem;
+    justify-content:center;
 }
 .scrapeButton{
     background-color: black;
     color: white;
+    margin-right: 0.5rem !important;
 }
 .analyzeButton{
     background-color:black;
     color: white;
-    margin-left: 0.5rem;
+    margin-left: 0.5rem !important;
 }
 .analyzeButton:hover{
     background-color: #028090;
+    color: black;
 }
 .scrapeButton:hover{
     background-color: #1DA1F2;
@@ -76,8 +91,49 @@ body{
 }
 .form {
     display: flex;
+    font-size: 20px;
     flex-direction: column;
     justify-content: space-evenly;
     flex-grow: 1;
-    padding-bottom: 0.5rem;
+}
+.plots{
+    margin-right: 1rem !important;
+}
+
+.mapDiv{
+    height: 300px;
+}
+
+.loaderContainer{
+    width:100vw;
+    height: 100vh;
+    text-align: center;
+}
+.layerContainer{
+    text-align: center;
+    z-index: 2 !important;
+    align-self: center;
+}
+.layer{
+    
+}
+
+.loader{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.RoomIcon{
+    color:red;
+}
+.count{
+    margin-left: 0.4rem;
+}
+.csvSelector{
+    width: 100vw;
+}
+.selector{
+    width:40vw;
+    height: 3vh;
 }

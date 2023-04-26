@@ -12,7 +12,6 @@
 
 html {
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 22px;
     color: #fff;
 }
 
@@ -20,9 +19,25 @@ body{
     padding: 0;
     margin: 0;
 }
+.registerNav{
+    background-color: none;
+    padding: 0;
+    background: none;
+    border: none;
+    color: forestgreen;
+}
+
+.loginNav{
+    background-color: none;
+    padding: 0;
+    background: none;
+    border: none;
+    color: forestgreen;
+}
  
 .page{
     overflow: hidden;
+    font-size: 22px;
     padding: 0;
     margin: 0;
     top:0;

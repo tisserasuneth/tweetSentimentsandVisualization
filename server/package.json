@@ -14,6 +14,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.22",
+    "react-map-gl": "^7.0.23",
     "supervisor": "^0.12.0"
   }
 }

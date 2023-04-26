@@ -63,6 +63,9 @@ const Login = () => {
         catch(err){
         }
     }
+    const handleRegisterNav = () =>{
+        navigate("/")
+    }
 
   return (
     <Container className="page">
@@ -115,9 +118,7 @@ const Login = () => {
                     <Grid item>
                         <button className="signUp" disabled={!validName||!validPassword ? true : false}>Sign in</button>
                         <p>
-                            Don't have an account yet?
-                                Register
-                                {/* router goes here */}
+                            Don't have an account yet? <button className='registerNav' onClick={handleRegisterNav}>Register</button>
                         </p>
                     </Grid>
                     </form>

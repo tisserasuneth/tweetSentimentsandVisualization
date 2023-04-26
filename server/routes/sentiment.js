@@ -3,7 +3,8 @@ const router = require("express").Router()
 
 
 router.get('/analyze',(req, res)=>{
-    const python = spawn('python3', ['sentiment.py'])
+    const CSVName = req.query.file
+    const python = spawn('python3', ['sentiment.py',CSVName])
     let result = ''
 
     python.stdout.on('data',(data)=>{

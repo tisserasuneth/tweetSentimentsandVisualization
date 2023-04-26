@@ -5,8 +5,7 @@ import sys
 tweets = []
 
 def scrape(keywords,start,end):
-    print(keywords+' '+'lang:en '+'since:'+start+' '+'until:'+end)
-    scraper = sntwitter.TwitterSearchScraper(keywords+' '+'lang:en '+'since:'+start+' '+'until:'+end)
+    scraper = sntwitter.TwitterSearchScraper(keywords)
     for tweet in scraper.get_items():
         data = [tweet.rawContent, tweet.date, tweet.user.username]
         tweets.append(data)

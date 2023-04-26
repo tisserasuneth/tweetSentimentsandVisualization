@@ -1,21 +1,24 @@
 import pandas as pd
 from transformers import pipeline
+import sys
+import json
 
-
-
-
-labels = {}
+labelsAndLoc = {'POSITIVE':0,
+                'NEGATIVE':0
+               }
 
 def count(sentiment):
-    if(sentiment in labels):
-        labels[sentiment] += 1
+    if(sentiment in labelsAndLoc):
+        labelsAndLoc[sentiment] += 1
     else:
-        labels[sentiment] = 1
-         
-def analyze():
-    df = pd.read_csv('tweets1.csv')
-    tweets = df.head(20)['content'].values
+        labelsAndLoc[sentiment] = 1
 
+n = 50
+
+def analyze(CSVName):
+    df = pd.read_csv(CSVName)
+    tweets = df.head(n)['content'].values
+    sentiment_values = []
     for tweet in tweets:
         tweet_words = []
         for word in tweet.split(' '):
@@ -33,27 +36,19 @@ def analyze():
         sentiment = pipeline("sentiment-analysis", model=model_name, revision=revision)
         result = sentiment(tweet_proc)[0]
         count(result['label'])
-    print(labels)
+        sentiment_values.append(result['label'])
+
+    newDf = pd.read_csv(CSVName,nrows=n)   
+    newDf.loc[:n-1, 'sentiment'] = sentiment_values
+    newDf = newDf.loc[newDf['sentiment']=='NEGATIVE']
+    labelsAndLoc['latitude'] = (newDf['latitude'].values).tolist()
+    labelsAndLoc['longitude'] = (newDf['longitude'].values).tolist()
+    jsonFile = json.dumps(labelsAndLoc)
+    print(jsonFile)
 
 def main():
-    analyze()
+    analyze(sys.argv[1])
 
 if __name__ == "__main__": 
     main()
 
-
-
-# for ele in analyzed:
-#     negative+=ele[0]
-#     neutral+=ele[1]
-#     positive+=ele[2]
-
-# avg_negative = negative/len(analyzed)
-# avg_neutral = neutral/len(analyzed)
-# avg_positive = positive/len(analyzed)
-
-# print(avg_negative,avg_neutral,avg_positive)
-
-# data = {'Value': [avg_negative*100, avg_neutral*100, avg_positive*100],
-#         'Sentiment': ['Negative', 'Neutral', 'Positive']}
-# df = pd.DataFrame(data)
