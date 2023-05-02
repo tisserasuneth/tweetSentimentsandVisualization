@@ -8,9 +8,7 @@ const scraperRoute = require("./routes/scraper")
 const csvRoute = require("./routes/csv")
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const installPythonLib = require('./installPythonLib');
 
-installPythonLib();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
