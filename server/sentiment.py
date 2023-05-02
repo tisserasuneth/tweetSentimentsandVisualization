@@ -1,19 +1,19 @@
-# import pandas as pd
+import pandas as pd
 # from transformers import pipeline
 import sys
-# import json
+import json
 
-# labelsAndLoc = {'POSITIVE':0,
-#                 'NEGATIVE':0
-#                }
+labelsAndLoc = {'POSITIVE':0,
+                'NEGATIVE':0
+               }
 
-# def count(sentiment):
-#     if(sentiment in labelsAndLoc):
-#         labelsAndLoc[sentiment] += 1
-#     else:
-#         labelsAndLoc[sentiment] = 1
+def count(sentiment):
+    if(sentiment in labelsAndLoc):
+        labelsAndLoc[sentiment] += 1
+    else:
+        labelsAndLoc[sentiment] = 1
 
-# n = 50
+n = 50
 
 def analyze(CSVName):
     print('hello')
@@ -39,13 +39,13 @@ def analyze(CSVName):
     #     count(result['label'])
     #     sentiment_values.append(result['label'])
 
-    # newDf = pd.read_csv(CSVName,nrows=n)   
+    newDf = pd.read_csv(CSVName,nrows=n)   
     # newDf.loc[:n-1, 'sentiment'] = sentiment_values
     # newDf = newDf.loc[newDf['sentiment']=='NEGATIVE']
-    # labelsAndLoc['latitude'] = (newDf['latitude'].values).tolist()
-    # labelsAndLoc['longitude'] = (newDf['longitude'].values).tolist()
-    # jsonFile = json.dumps(labelsAndLoc)
-    # print(jsonFile)
+    labelsAndLoc['latitude'] = (newDf['latitude'].values).tolist()
+    labelsAndLoc['longitude'] = (newDf['longitude'].values).tolist()
+    jsonFile = json.dumps(labelsAndLoc)
+    print(jsonFile)
 
 def main():
     analyze(sys.argv[1])
