@@ -6,10 +6,6 @@ const bcrypt = require("bcrypt")
 //register
 router.post("/register",async(req,res)=>{
 
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, X-UserSession');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
-
     try{
         //generate password
         const salt = await bcrypt.genSalt(10)
@@ -39,9 +35,6 @@ router.post("/register",async(req,res)=>{
 router.post("/login",async(req,res)=>{
 
     try{
-        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-        res.setHeader('Access-Control-Allow-Credentials', true);
-        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
 
         //find user
         const user = await User.findOne({username: req.body.username})
