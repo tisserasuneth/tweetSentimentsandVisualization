@@ -17,6 +17,11 @@ app.use((req,res,next)=>{
     res.setHeader["Access-Control-Allow-Origin","*"]
     res.setHeader["Access-Control-Allow-Methods","*"]
     res.setHeader["Access-Control-Allow-Headers","*"]
+    if(req.method === 'OPTIONS') {
+        return res.status(200).json(({
+            body: "ok"
+        }))
+    }
 });
 app.use(cors());
 app.use(express.json())
@@ -39,8 +44,6 @@ app.use("/api/sentiment",sentimentRoute)
 app.use("/api/scraper",scraperRoute)
 app.use("/api/read",csvRoute)
 
-// app.listen(port,()=>console.log('Server is running'))
-const http = require('http');
-const server = http.createServer('0.0.0.0');
-server.listen(port);
+app.listen(port,()=>console.log('Server is running'))
+
 
