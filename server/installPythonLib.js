@@ -16,4 +16,4 @@ function installPythonLib(){
   });
 }
 
-export default installPythonLib;
+module.exports = installPythonLib
