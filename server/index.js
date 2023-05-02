@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json())
+const port = process.env.PORT || 8800;
 
 mongoose.set('strictQuery', true);
 dotenv.config()
@@ -33,6 +34,6 @@ app.use("/api/sentiment",sentimentRoute)
 app.use("/api/scraper",scraperRoute)
 app.use("/api/read",csvRoute)
 
-app.listen('8800',()=>console.log('Server is running'))
+app.listen(port,()=>console.log('Server is running'))
 
 
