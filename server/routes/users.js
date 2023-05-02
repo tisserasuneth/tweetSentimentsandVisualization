@@ -26,7 +26,7 @@ router.post("/register",async(req,res)=>{
     }
     if(req.method === 'OPTIONS') {
         return res.status(200).json(({
-            body: "ok"
+            body: "OK"
         }))
     }
 })
@@ -35,7 +35,7 @@ router.post("/register",async(req,res)=>{
 router.post("/login",async(req,res)=>{
     if(req.method === 'OPTIONS') {
         return res.status(200).json(({
-            body: "ok"
+            body: "OK"
         }))
     }
     try{
