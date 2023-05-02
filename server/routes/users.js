@@ -33,7 +33,11 @@ router.post("/register",async(req,res)=>{
 
 //login
 router.post("/login",async(req,res)=>{
-
+    if(req.method === 'OPTIONS') {
+        return res.status(200).json(({
+            body: "OK"
+        }))
+    }
     try{
 
         //find user
@@ -48,11 +52,6 @@ router.post("/login",async(req,res)=>{
         res.status(200).json({_id: user._id, username: user.username})
     }catch(err){
         res.status(500).json(err)
-    }
-    if(req.method === 'OPTIONS') {
-        return res.status(200).json(({
-            body: "OK"
-        }))
     }
 })
 module.exports = router

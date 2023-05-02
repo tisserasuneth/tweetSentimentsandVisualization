@@ -16,5 +16,11 @@ router.get('/scrape',(req, res)=>{
     python.on('close',(code)=>{
         res.send(result)
     })
+    if(req.method === 'OPTIONS') {
+        return res.status(200).json(({
+            body: "OK"
+        }))
+    }
+
 })
 module.exports = router
