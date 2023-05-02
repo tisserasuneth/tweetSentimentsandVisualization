@@ -84,7 +84,7 @@ function Home() {
     })
     .catch(error => console.log(error));
   }
-  const analyze = () => {
+  const analyze = async () => {
     setIsLoading(true);
     console.log(CSVName)
     axios.get('/api/sentiment/analyze', {

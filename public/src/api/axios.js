@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://thebrewanalysis-backend.onrender.com'
+    baseURL: 'https://tweet-sentimentsand-visualization-t3aa.vercel.app/'
 });
