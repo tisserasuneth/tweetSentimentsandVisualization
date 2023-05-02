@@ -94,14 +94,13 @@ function Home() {
     })
     .then(response=>{
       let recieved = response.data;
-      // let positive = recieved["POSITIVE"];
-      // let negative = recieved["NEGATIVE"];
+      let positive = recieved["POSITIVE"];
+      let negative = recieved["NEGATIVE"];
       console.log('ok')
       setLatitudes(recieved["latitude"]);
       setLongitudes(recieved["longitude"]);
-      // readCSV();
-      // setData([(negative/(positive+negative))*100,(positive/(positive+negative))*100]);
-      console.log('second')
+      readCSV();
+      setData([(negative/(positive+negative))*100,(positive/(positive+negative))*100]);
       setIsTweets(true);
       setKeyword(CSVName)
       setCSVName('budlight.csv')
