@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-const pip = spawn('pip', ['install', '-r', 'path/to/requirements.txt']);
+const pip = spawn('pip', ['install', '-r', 'requirements.txt']);
 
 pip.stdout.on('data', (data) => {
   console.log(data.toString());
