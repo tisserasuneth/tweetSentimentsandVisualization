@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://thebrewanalysis-frontend.onrender.com'
+    baseURL: 'https://thebrewanalysis-backend.onrender.com'
 });
