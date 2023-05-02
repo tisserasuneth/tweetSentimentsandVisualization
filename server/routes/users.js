@@ -5,7 +5,18 @@ const bcrypt = require("bcrypt")
 
 //register
 router.post("/register",async(req,res)=>{
+
     try{
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        res.setHeader('Access-Control-Allow-Credentials', true);
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
+        if(req.method === 'OPTIONS') {
+            return res.status(200).json(({
+                body: "OK"
+            }))
+        }
+
         //generate password
         const salt = await bcrypt.genSalt(10)
         const hashedPassword = await bcrypt.hash(req.body.password,salt)
@@ -27,7 +38,18 @@ router.post("/register",async(req,res)=>{
 
 //login
 router.post("/login",async(req,res)=>{
+
     try{
+
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+        res.setHeader('Access-Control-Allow-Credentials', true);
+        res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, OPTIONS, DELETE');
+        if(req.method === 'OPTIONS') {
+            return res.status(200).json(({
+                body: "OK"
+            }))
+        }
 
         //find user
         const user = await User.findOne({username: req.body.username})

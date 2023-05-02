@@ -15,11 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json())
-const port = process.env.PORT || 8800;
+
 
 mongoose.set('strictQuery', true);
 dotenv.config()
-
+const port = process.env.PORT || 8800;
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser:true,
     useUnifiedTopology:true
