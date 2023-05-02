@@ -39,6 +39,8 @@ app.use("/api/sentiment",sentimentRoute)
 app.use("/api/scraper",scraperRoute)
 app.use("/api/read",csvRoute)
 
-app.listen(port,()=>console.log('Server is running'))
-
+// app.listen(port,()=>console.log('Server is running'))
+const http = require('http');
+const server = http.createServer('0.0.0.0');
+server.listen(port);
 
