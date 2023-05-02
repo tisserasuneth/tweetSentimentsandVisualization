@@ -87,22 +87,24 @@ function Home() {
   const analyze = () => {
     setIsLoading(true);
     console.log(CSVName)
-    axios.get('/api/sentiment/analyze', {
-      params:{
-        file:CSVName
-      }
-    })
+    // axios.get('/api/sentiment/analyze', {
+    //   params:{
+    //     file:CSVName
+    //   }
+    // })
+    console.log('yes')
     .then(response=>{
-      let recieved = response.data;
-      let positive = recieved["POSITIVE"];
-      let negative = recieved["NEGATIVE"];
-      setLatitudes(recieved["latitude"]);
-      setLongitudes(recieved["longitude"]);
-      readCSV();
-      setData([(negative/(positive+negative))*100,(positive/(positive+negative))*100]);
-      setIsTweets(true);
-      setKeyword(CSVName)
-      setCSVName('budlight.csv')
+      // let recieved = response.data;
+      // let positive = recieved["POSITIVE"];
+      // let negative = recieved["NEGATIVE"];
+      // setLatitudes(recieved["latitude"]);
+      // setLongitudes(recieved["longitude"]);
+      // readCSV();
+      // setData([(negative/(positive+negative))*100,(positive/(positive+negative))*100]);
+      // setIsTweets(true);
+      // setKeyword(CSVName)
+      // setCSVName('budlight.csv')
+      console.log('okay')
       setIsLoading(false);
     })
     .catch(error => console.log(error));
