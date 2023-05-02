@@ -1,0 +1,17 @@
+const { spawn } = require('child_process');
+
+const pip = spawn('pip', ['install', '-r', 'path/to/requirements.txt']);
+
+pip.stdout.on('data', (data) => {
+  console.log(data.toString());
+});
+
+pip.stderr.on('data', (data) => {
+  console.error(data.toString());
+});
+
+pip.on('close', (code) => {
+  console.log(`Pip exited with code ${code}`);
+});
+
+module.exports = installPythonLib;

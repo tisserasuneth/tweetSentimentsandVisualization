@@ -8,31 +8,17 @@ const scraperRoute = require("./routes/scraper")
 const csvRoute = require("./routes/csv")
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const installPythonLib = require('installPythonLib');
 
+installPythonLib();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use((req,res,next)=>{
-    if(req.method === 'OPTIONS') {
-        return res.status(200).json(({
-            body: "OK"
-        }))
-    }
-    res.setHeader["Access-Control-Allow-Origin","*"]
-    res.setHeader["Access-Control-Allow-Methods","*"]
-    res.setHeader["Access-Control-Allow-Headers","*"]
-    if(req.method === 'OPTIONS') {
-        return res.status(200).json(({
-            body: "OK"
-        }))
-    }
-});
 app.use(cors());
 app.use(express.json())
 
-
 mongoose.set('strictQuery', true);
 dotenv.config()
-const port = process.env.PORT || 8800;
+
 mongoose.connect(process.env.MONGO_URL,{
     useNewUrlParser:true,
     useUnifiedTopology:true
@@ -47,6 +33,6 @@ app.use("/api/sentiment",sentimentRoute)
 app.use("/api/scraper",scraperRoute)
 app.use("/api/read",csvRoute)
 
-app.listen(port,()=>console.log('Server is running'))
+app.listen('8800',()=>console.log('Server is running'))
 
 

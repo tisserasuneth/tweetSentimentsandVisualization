@@ -5,7 +5,6 @@ const bcrypt = require("bcrypt")
 
 //register
 router.post("/register",async(req,res)=>{
-
     try{
         //generate password
         const salt = await bcrypt.genSalt(10)
@@ -24,20 +23,10 @@ router.post("/register",async(req,res)=>{
         res.status(500).json(err)
         console.log(err)
     }
-    if(req.method === 'OPTIONS') {
-        return res.status(200).json(({
-            body: "OK"
-        }))
-    }
 })
 
 //login
 router.post("/login",async(req,res)=>{
-    if(req.method === 'OPTIONS') {
-        return res.status(200).json(({
-            body: "OK"
-        }))
-    }
     try{
 
         //find user
