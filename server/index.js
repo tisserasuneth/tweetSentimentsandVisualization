@@ -9,7 +9,6 @@ const csvRoute = require("./routes/csv")
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-installPythonLib();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use((req,res,next)=>{
