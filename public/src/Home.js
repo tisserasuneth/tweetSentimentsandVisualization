@@ -89,7 +89,8 @@ function Home() {
     console.log(CSVName)
     axios.get('https://django-backend-one.vercel.app/sentiment/analyze_csv', {
       params:{
-        file:CSVName
+        'my-url':'https://django-backend-one.vercel.app/sentiment/analyze_csv',
+        'file': CSVName
       }
     })
     .then(response=>{
