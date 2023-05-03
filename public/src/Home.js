@@ -87,7 +87,7 @@ function Home() {
   const analyze = () => {
     setIsLoading(true);
     console.log(CSVName)
-    axios.get('/api/sentiment/analyze', {
+    axios.get('https://django-backend-one.vercel.app/sentiment/analyze_csv', {
       params:{
         file:CSVName
       }
@@ -96,7 +96,6 @@ function Home() {
       let recieved = response.data;
       let positive = recieved["POSITIVE"];
       let negative = recieved["NEGATIVE"];
-      console.log('ok')
       setLatitudes(recieved["latitude"]);
       setLongitudes(recieved["longitude"]);
       readCSV();
@@ -104,21 +103,19 @@ function Home() {
       setIsTweets(true);
       setKeyword(CSVName)
       setCSVName('budlight.csv')
-      console.log(recieved)
       setIsLoading(false);
     })
     .catch(error => console.log(error));
   }
   const readCSV = () => {
-    axios.get('/api/read/csv',{
+    axios.get('https://django-backend-one.vercel.app//sentiment/read_csv',{
       params:{
         file: CSVName
       }
     })
     .then(response=>{
       rawData = response.data
-      rawData = rawData.split('\n')
-      setTweets(rawData)
+      setTweets(rawData['data'])
     })
     .catch(error => console.log(error));
   }
@@ -219,14 +216,14 @@ function Home() {
         >
           <Grid item>
             <Tabs value={currentTabIndex} onChange={handleTabChange}>
-              <Tab label='Scrape' />
               <Tab label='Existing Data' />
+              <Tab label='Scrape' />
             </Tabs>
-            {currentTabIndex === 0 && (
+            {currentTabIndex === 1 && (
               <form className='form'>
                 <div>
                   <label htmlFor="keywords">
-                    <h3>Enter Keywords below: </h3>
+                    <h3>Enter Keywords below:  (Currently Unavailable) </h3>
                     <p>Separate each keyword with a comma (,)</p>
                     <p>Example: budlight, coors, beer</p>
                   </label>
@@ -256,7 +253,7 @@ function Home() {
                     />
               </form>
             )}
-            {currentTabIndex === 1 && (
+            {currentTabIndex === 0 && (
               <form className='form'>
                 <label htmlFor="keywords">
                     <h3>Select Keyword</h3>
