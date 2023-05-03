@@ -99,7 +99,7 @@ function Home() {
       let negative = recieved["NEGATIVE"];
       setLatitudes(recieved["latitude"]);
       setLongitudes(recieved["longitude"]);
-      readCSV();
+      // readCSV();
       setData([(negative/(positive+negative))*100,(positive/(positive+negative))*100]);
       setIsTweets(true);
       setKeyword(CSVName)
