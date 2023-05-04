@@ -89,8 +89,7 @@ function Home() {
     console.log(CSVName)
     axios.get('https://cors-proxy3.p.rapidapi.com/api', {
       params:{
-        'my-url':'https://django-backend-one.vercel.app/sentiment/analyze_csv',
-        'file': CSVName
+        'my-url':'https://django-backend-one.vercel.app/sentiment/analyze_csv?file='+CSVName,
       },
       headers: {
         'content-type': 'application/x-www-form-urlencoded',
