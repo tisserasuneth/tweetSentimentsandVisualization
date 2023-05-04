@@ -87,11 +87,16 @@ function Home() {
   const analyze = () => {
     setIsLoading(true);
     console.log(CSVName)
-    axios.get('https://cors-proxy-name.vercel.app', {
+    axios.get('https://cors-proxy3.p.rapidapi.com/api', {
       params:{
         'my-url':'https://django-backend-one.vercel.app/sentiment/analyze_csv',
         'file': CSVName
-      }
+      },
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-RapidAPI-Key': 'e0ec51b15fmsh1991149f3868812p1081f5jsn1e4a8120d452',
+        'X-RapidAPI-Host': 'cors-proxy3.p.rapidapi.com'
+      },
     })
     .then(response=>{
       let recieved = response.data;
