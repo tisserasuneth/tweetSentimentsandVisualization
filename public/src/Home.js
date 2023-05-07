@@ -92,9 +92,9 @@ function Home() {
         'my-url':'https://django-backend-one.vercel.app/sentiment/analyze_csv?file='+CSVName,
       },
       headers: {
-        'content-type': 'application/x-www-form-urlencoded',
-        'X-RapidAPI-Key': 'e0ec51b15fmsh1991149f3868812p1081f5jsn1e4a8120d452',
-        'X-RapidAPI-Host': 'cors-proxy3.p.rapidapi.com'
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization'
       },
     })
     .then(response=>{
