@@ -87,9 +87,9 @@ function Home() {
   const analyze = () => {
     setIsLoading(true);
     console.log(CSVName)
-    axios.get('cors-proxy-share-omega.vercel.app/', {
+    axios.get('https://cors-proxy-share-omega.vercel.app', {
       params:{
-        'my-url':'https://django-backend-one.vercel.app/sentiment/analyze_csv?file='+CSVName,
+        'my-url':'https://django-backend-one.vercel.app/sentiment/analyze_csv'
       },
       headers: {
         'Access-Control-Allow-Origin': '*',
